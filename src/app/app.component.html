@@ -2,5 +2,9 @@
 <div class="shopping-cart">
 <app-shopping-cart-item
  *ngFor="let item of items" 
- [item]="item" (OnDelete)="onDeleteEvent($event)"></app-shopping-cart-item>
+ [item]="item" (OnDelete)="onDeleteEvent($event)"
+ (OnCountUpdated)="onCountUpdatedEvent($event)"
+ (OnRefresh)="refresh()"></app-shopping-cart-item>
+
+<h3>Total Price: {{ totalPrice }}</h3>
 </div>
