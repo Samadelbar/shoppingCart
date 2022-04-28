@@ -1,17 +1,14 @@
 <div class="shopping-cart-item">
-   <div class="content">
-       <div class="action-list">
-        <button class="btn-plus" (click)="add()">+</button>
-        <input [value]="item?.count" class="textfield" disabled type="number">
-        <button class="btn-minus" (click)="sub()">-</button>
-        <button class="btn-del" (click)="del(item?.id)">Delete</button>
-       </div>
-    <img class="product-img" [src]="item?.image" alt=""/>
-    <div class="product-name">{{item?.name}}</div>
-    <div class="product-price">${{item?.price}}</div>
-   </div>
-    
+  <div class="content">
+    <img class="product-img" [src]="item?.image" alt="" />
+    <div class="product-name">{{ item?.name }}</div>
+    <div class="product-price">${{ item?.price }}</div>
+
+    <div class="action-list">
+      <button class="btn-plus" (click)="add()">+</button>
+      <input placeholder="0" [value]="item?.count" disabled class="textfield" type="number" />
+      <button class="btn-minus" (click)="sub()">-</button>
+      <button class="btn-del" (click)="del(item?.id)">Delete</button>
+    </div>
+  </div>
 </div>
-
-
-   
