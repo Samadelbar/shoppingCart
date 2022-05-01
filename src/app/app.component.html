@@ -1,6 +1,10 @@
 <h1 class="text-center">Shopping Cart</h1>
 <div class="shopping-cart">
-<app-shopping-cart-item
+<br>
+<button type="button" class="btn btn-primary btn-lg"  (click)="initCart()">Init Cart</button>
+<br>
+<br>
+    <app-shopping-cart-item
  *ngFor="let item of items" 
  [item]="item" (OnDelete)="onDeleteEvent($event)"
  (OnCountUpdated)="onCountUpdatedEvent($event)"

@@ -25,15 +25,14 @@ export class AppComponent implements OnInit {
     let sumPrice: number = 0;
     this.items.forEach((item) => {
       const price: number = item.price ?? 0;
-      sumPrice += (price * (item.count ?? 0));
+      sumPrice += price * (item.count ?? 0);
     });
     this.totalPrice = sumPrice;
+
+    localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
-  ngOnInit(): void {
-    this.initCart();
-  }
-  private initCart() {
+  initCart() {
     this.items = [
       {
         id: 1,
@@ -65,5 +64,16 @@ export class AppComponent implements OnInit {
       },
     ];
     this.refresh();
+  }
+
+  ngOnInit(): void {
+   this.initFromLocalStorage()
+  }
+  private initFromLocalStorage(){
+    var data = localStorage.getItem('cart');
+    if (data) {
+      this.items = JSON.parse(data);
+      this.refresh();
+    }
   }
 }
